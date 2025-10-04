@@ -1,8 +1,10 @@
 # maicab_fullsize
 A collection of notes and lessons learned from building a maimai-like home arcade cabinet. 
 
-test photo 2:
 
-<img src="/Photos/pcb_finished.jpg" width="600">
+Finished Project:
+
+<img src="/Photos/gameplay.gif" width="600"><img src="/Photos/front_finished.jpg" width="600"><img src="/Photos/front_finished_gameplay_still.jpg" width="600">
+
 
 
