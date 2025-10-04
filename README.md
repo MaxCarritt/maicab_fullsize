@@ -32,7 +32,9 @@ One last note that made this display a working option compared to other touch di
 
 There is a variety of button options for the project, including 3d printing your own. 
 
-I bought 8 of these: <img src="/Photos/button.png" width="600"> 
+I bought 8 of these:
+
+<img src="/Photos/button.png" width="300"> 
 
 https://www.alibaba.com/product-detail/Arcade-Machines-Video-Games-Coin-Operated_1600995755848.html?spm=a2756.trade-carp.valid-supplier.3.184a3192s4dIyb
 
