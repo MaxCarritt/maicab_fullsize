@@ -3,4 +3,6 @@ A collection of notes and lessons learned from building a maimai-like home arcad
 
 test photo 2:
 
-<img src="/Photos/PCB%20finished.jpg" alt="Alt text" width="600">
+<img src="/Photos/pcb_finished.jpg" width="600">
+
+
