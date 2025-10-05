@@ -21,9 +21,11 @@ https://www.elotouch.de/open-frame-touchscreens-4363l.html
 
 <img src="https://marvel-b1-cdn.bc0a.com/f00000000296536/www.elotouch.de/media/wysiwyg/3263L-new/Designed-for-easy-integration.png" width="300">
 
-This is a somewhat controversial choice.  Brand new options are far too expensive. I was able to find it on offer for around $500. You might be able to find a similar option.
+This is a somewhat controversial choice. 
 
-Most guides suggest a touch screen display is not suitable for high level play. So far this option has been totally sufficient for around level 10-11 play. it might be that on higher levels of play that its not good enough. I'm not there yet so I cant say. I will say the touch responsiveness and latency so far have been great. Perfect timing taps are super easy. It supports 10 point touch. I do suspect that "circular slides" on the touch screen may not be possible. 
+Latency/Accuracy; Most guides suggest a touch screen display is not suitable for high level play. So far this option has been totally sufficient for around level 10-11 play. it might be that on higher levels of play that its not good enough. I'm not there yet so I cant say. I will say the touch responsiveness and latency so far have been great. Perfect timing taps are super easy. It supports 10 point touch. I do suspect that "circular slides" on the touch screen may cause some trouble.
+
+Cost; Brand new options are far too expensive. I was able to find it on offer for around $500. You might be able to find a similar option.
 
 One last note that made this display a working option compared to other touch displays, is that only skin touch is registering as a touch. The front faceplate of my build sits directly above the screen with a small foam cushion between the board and display. This foam cushion does not register a touch and doesnt interfere with the touch screen. 
 
@@ -61,6 +63,6 @@ https://www.amazon.de/-/en/dp/B01N11BDX9?ref_=ppx_hzsearch_conn_dt_b_fed_asin_ti
 ### Button Sensor:
 I cant be sure of the EXACT model number of the sensor, but it seems to be  a **Sharp GP1A73AJ000F**. This is no longer available from places like digikey and mouser, but there is a large inventory in China. I bought replacements from aliexpress: https://de.aliexpress.com/item/1005008751424908.html?gatewayAdapt=glo2deu#nav-specification
 
-It's easy to burn out the sensor if you dont know what you are doing, and directly wire the input to 5v. You need a current limiting resistor. I used a 110 ohm that I spliced in-line between the board and the button. the 1.1v of the mai_pico pcb actually accomadates this now: 
+It's easy to burn out the sensor if you dont know what you are doing, and directly wire the input to 5v. You need a current limiting resistor. I used a 220 ohm that I spliced in-line between the board and the button. Any 100-220ohm resistor is a safe bet. the 1.1v of the mai_pico pcb actually accomadates this now: 
 
 
