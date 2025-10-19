@@ -44,6 +44,8 @@ I printed it with the player facing side up, and high quality settings with iron
 ## Faceplate
 
 <img src="./Photos/faceplate_drawing.png" width="300"> <img src="./Photos/faceplate_drawing_buttons.png" width="300">
+[Sketchup Link](https://app.sketchup.com/share/tc/europe/h4VUo4Tt3_k?source=web&stoken=3EBXgNx8HZxIcI3Zf4U16-ZSuDDfLSql-8k8eOfJ0xX2ZlU9Cw1p_ZszAaV0ycRB)
+(Sorry I cant export this without paying now :/ ) 
 
 I created the above diagram for a local hardware store (OBI) and they were able to make the appropriate cuts for me. I was under the impression this would be a CNC done job, but it was not. The job was good enough but not perfect. 
 
