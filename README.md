@@ -29,6 +29,24 @@ Check the [Materials](Materials.md) page for a BOM and some notes.
 
 I bought the buttons from a seller on [Alibaba](https://www.alibaba.com/product-detail/Arcade-Machines-Video-Games-Coin-Operated_1600995755848.html) . They are very good quality and seem like the real thing as far as I can tell. 
 
+### Button Testing and mai_pico setup
+
+When I first started, I wanted to test one button first, before wiring up all 8. Here is my advice for doing so:
+
+In the mai_pico command line, you will need to turn on the "tweak" for making the main buttons normally-on inputs if you are using full size Maimai buttons. These buttons send an On signal by default, and an Off signal when pressed, so it needs to be reversed in the mai_pico firmware. 
+
+However when you do this when you dont have all 8 buttons wired, the firmware will give an error of a "stuck" button. 
+
+To get around this, set all 8 buttons to the button you have wired! For example if your button is connected only on gpio pin 2 , run the command
+
+`gpio main 2 2 2 2 2 2 2 2`
+
+Then that button will register inputs for all 8 buttons, and you can be sure its working without wiring up all 8 buttons. 
+
+The default IO mode for the buttons is called IO4, basically a joypad input. To see if the button input is working or not, just open the [Windows Set Up Game Controllers  settings](https://gr33nonline.wordpress.com/2021/01/10/how-to-test-a-game-controller-on-windows-10/), where you can see the button press register on the controller that should be listed there coming from the mai_pico.  
+
+Even though it might be tempting to use GPIO 0-7 for the buttons, dont. Do not try to use pins 6 and 7 for buttons. They are reserved for other uses (touch input), and you will have a bad time. Just stick to the default GPIO ( 0 1 2 3 4 5 8 9 ). These are the GPIO you will be using with the mai_pico IO board anyway. 
+
 ### Button Sensor:
 I cant be sure of the EXACT model number of the sensor, but it seems to be  a **Sharp GP1A73AJ000F**. This is no longer available from places like digikey and mouser, but there is a large inventory in China. I bought replacements from aliexpress: https://de.aliexpress.com/item/1005008751424908.html?gatewayAdapt=glo2deu#nav-specification
 
@@ -44,8 +62,11 @@ I printed it with the player facing side up, and high quality settings with iron
 ## Faceplate
 
 <img src="./Photos/faceplate_drawing.png" width="300"> <img src="./Photos/faceplate_drawing_buttons.png" width="300">
+
 [Sketchup Link](https://app.sketchup.com/share/tc/europe/h4VUo4Tt3_k?source=web&stoken=3EBXgNx8HZxIcI3Zf4U16-ZSuDDfLSql-8k8eOfJ0xX2ZlU9Cw1p_ZszAaV0ycRB)
 (Sorry I cant export this without paying now :/ ) 
+
+One lesson learned as I was trying to choose the right software to make a CAD type drawing, was I eventually learned that [autodesk fusion](https://www.autodesk.com/products/fusion-360/personal) 360 has a somewhat hidden option for a free personal-use license. I think this is the best option around after trying a few. 
 
 I created the above diagram for a local hardware store (OBI) and they were able to make the appropriate cuts for me. I was under the impression this would be a CNC done job, but it was not. The job was good enough but not perfect. 
 
@@ -73,3 +94,9 @@ I recommend getting some 1 or 1.5mm foam strips / pads to adhere to the back of 
 <img src="./Photos/inset_screw_hole.jpg" width="300">  <img src="./Photos/inset_finished.jpg" width="300">
 
 You will need a [28mm Forstner drill bit](https://www.amazon.de/-/en/dp/B01MTADZX3?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)  for the screw holes that are under the buttons. You will not be able to attach the buttons / spacers with these bolts sticking out.
+
+
+### LEDs
+
+https://github.com/Sucareto/Mai2Touch : 
+- Open the device manager and set the Arduino's COM number, 1P = COM21, 2P = COM23
