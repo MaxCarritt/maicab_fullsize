@@ -18,7 +18,7 @@ Here is a look at the finished project running Majdata Play. (Majdata Play is an
 
 
 # Materials
-Check the [Materials](Materials.md) page for a BOM and some notes. 
+<mark>Check the [Materials](Materials.md) page for a BOM and some notes! <\mark>
 
 
 # Lessons Learned
@@ -35,9 +35,9 @@ When I first started, I wanted to test one button first, before wiring up all 8.
 
 In the mai_pico command line, you will need to turn on the "tweak" for making the main buttons normally-on inputs if you are using full size Maimai buttons. These buttons send an On signal by default, and an Off signal when pressed, so it needs to be reversed in the mai_pico firmware. 
 
-However when you do this when you dont have all 8 buttons wired, the firmware will give an error of a "stuck" button. 
+However when you do this when you do NOT have all 8 buttons wired, the firmware will give an error of a "stuck" button. 
 
-To get around this, set all 8 buttons to the button you have wired! For example if your button is connected only on gpio pin 2 , run the command
+To get around this, set all 8 buttons to the button you have wired! For example if your button is connected only on gpio pin 2 , run the command:
 
 `gpio main 2 2 2 2 2 2 2 2`
 
@@ -45,12 +45,23 @@ Then that button will register inputs for all 8 buttons, and you can be sure its
 
 The default IO mode for the buttons is called IO4, basically a joypad input. To see if the button input is working or not, just open the [Windows Set Up Game Controllers  settings](https://gr33nonline.wordpress.com/2021/01/10/how-to-test-a-game-controller-on-windows-10/), where you can see the button press register on the controller that should be listed there coming from the mai_pico.  
 
-Even though it might be tempting to use GPIO 0-7 for the buttons, dont. Do not try to use pins 6 and 7 for buttons. They are reserved for other uses (touch input), and you will have a bad time. Just stick to the default GPIO ( 0 1 2 3 4 5 8 9 ). These are the GPIO you will be using with the mai_pico IO board anyway. 
+Even though it might be tempting to use GPIO 0-7 for the buttons, **do not**. Do not try to use pins 6 and 7 for buttons. They are reserved for other uses (touch input), and you will have a bad time. Just stick to the default GPIO ( 0 1 2 3 4 5 8 9 ). These are the GPIO you will be using with the mai_pico IO board anyway. Additionally, do not worry about mapping buttons to an IO order that makes more sense to you. If you leave it at default, you just plug button 1 into the BTN 1 port of the board and you are done. 
+
+If you want to revert to default, here is the command:
+
+`gpio main 1 0 4 5 8 9 3 2` 
+
+Here is the order of the buttons in terms of gameplay:
+
+<img src="./Photos/mai_button_order.svg" width="300">
+
 
 ### Button Sensor:
 I cant be sure of the EXACT model number of the sensor, but it seems to be  a **Sharp GP1A73AJ000F**. This is no longer available from places like digikey and mouser, but there is a large inventory in China. I bought replacements from aliexpress: https://de.aliexpress.com/item/1005008751424908.html?gatewayAdapt=glo2deu#nav-specification
 
 It's easy to burn out the sensor if you dont know what you are doing, and directly wire the input to 5v. You need a current limiting resistor. I used a 220 ohm that I spliced in-line between the board and the button. Any 100-220ohm resistor is a safe bet. the 1.1 version of the mai_pico pcb (IO Board) actually accomadates this now: https://github.com/whowechina/mai_pico/blob/main/Production/PCB/mai_button_v111.zip
+
+You do not need this sensor, the buttons will come with a working one already installed. But these probably have a long lead time to ship and its a good idea to have some on hand in case you ever need to replace one.
 
 
 ## Spacers
@@ -97,6 +108,36 @@ You will need a [28mm Forstner drill bit](https://www.amazon.de/-/en/dp/B01MTADZ
 
 
 ### LEDs
+
+Get the LED pcb here: https://github.com/Syndric/maimai-controller-fullsize/blob/master/production/rabbit_mai_rgb.zip
+
+The LED is quite small, and without proper soldering equipment / experience , it will be difficult. Consider ordering 15+ boards in total in case you ruin a few. 
+
+You can also have jlpcb do the soldering for you if you supply the part numbers. 
+
+If you decide to have JLPCB do the assembly (PCBA) for you, I hope these details help: 
+
+BOM file details:
+| Designator | Footprint | JLCPCB Part #  |
+|------------|------------|---------------------------|
+| C1, C2     | C0603      | C1592                     |
+| D1, D2     | SMD5050    | C2761795                  |
+
+CPL File details:
+| Designator | Val       | Package                                                        | Mid X  | Mid Y  | Rotation | Layer |
+|------------|-----------|----------------------------------------------------------------|--------|--------|----------|--------|
+| C1         | C         | C_0603_1608Metric_Pad1.08x0.95mm_HandSolder                    | 128.5  | -86.5  | 0        | top    |
+| C2         | C         | C_0603_1608Metric_Pad1.08x0.95mm_HandSolder                    | 168    | -86.5  | 0        | top    |
+| D1         | WS2812B   | LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm                             | 129.95 | -90.15 | 0        | top    |
+| D2         | WS2812B   | LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm                             | 170.05 | -90.15 | 0        | top    |
+
+You may have noticed I left off the JST connectors. In my first attempt, the JST connectors I had were too big, and they did not fit inside the button housing. I think syndric also mentions needing to remove some of the button  plastic to make room (although also they used smaller connectors.). Instead I ommitted the JST connector and soldered the wires directly to PCB and created a chain of LED strips with enough length in the wire to reach the next button.
+
+Sorry I didnt get a better picture when I was working on this part, but you can see the LEDs chained together in this picture:
+<img src="./Photos/led_chain.png" width="300">
+
+
+# Connecting to Gameplay
 
 https://github.com/Sucareto/Mai2Touch : 
 - Open the device manager and set the Arduino's COM number, 1P = COM21, 2P = COM23
