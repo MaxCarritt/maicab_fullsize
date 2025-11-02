@@ -111,9 +111,9 @@ You will need a [28mm Forstner drill bit](https://www.amazon.de/-/en/dp/B01MTADZ
 
 Get the LED pcb here: https://github.com/Syndric/maimai-controller-fullsize/blob/master/production/rabbit_mai_rgb.zip
 
-The LED is quite small, and without proper soldering equipment / experience , it will be difficult. Consider ordering 15+ boards in total in case you ruin a few. 
+The LED itself is quite small, and without proper soldering equipment / experience , it will be difficult. Consider ordering 15+ boards in total, in case you ruin a few. 
 
-You can also have jlpcb do the soldering for you if you supply the part numbers. 
+You can also have jlpcb do the soldering / assembly for you if you supply the part numbers. 
 
 If you decide to have JLPCB do the assembly (PCBA) for you, I hope these details help: 
 
