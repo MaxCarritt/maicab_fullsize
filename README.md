@@ -183,3 +183,29 @@ Firmware settings that worked for me:
 <img src="./Photos/aime_settings.jpg" width="300">
 
 `Make sure Mai Pico AIME Port is set to COM1 in device manager.`
+
+### Aux Buttons
+
+You have options here, but for me I wanted an "Insert Coin" (red) button, and another "Player 1 / Song Sort" (blue) button. 
+
+For this I used the "test" and "service" buttons
+test = gpio11
+coin = gpio10
+
+the firmware requires you set the other two in the command, so set some unused gpio like 18 + 19
+
+commands:
+
+`gpio test 11`
+
+`gpio coin 10`
+
+`gpio service 18`
+
+`gpo nav 19`
+
+For the LEDs of these buttons, i just piggy backed the 5V and Common. I actually created a little jst connector that jumpered the 3 connections to supply voltage to the button rgb , and these two extra aux buttons. 
+
+I couldnt see anywhere in the information about the buttons about needing a resistor, only that it needs 5V. So far they are fine. 
+
+<img src="./Photos/aux_button_1.png" width="300">
