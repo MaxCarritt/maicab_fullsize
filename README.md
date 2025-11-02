@@ -58,6 +58,8 @@ Here is the order of the buttons in terms of gameplay:
 
 <img src="./Photos/mai_button_order.svg" width="300">
 
+**If you left the input as Io4 type, no additional configuration is needed to connect it to gameplay**
+
 
 ### Button Sensor:
 I cant be sure of the EXACT model number of the sensor, but it seems to be  a **Sharp GP1A73AJ000F**. This is no longer available from places like digikey and mouser, but there is a large inventory in China. I bought replacements from aliexpress: https://de.aliexpress.com/item/1005008751424908.html?gatewayAdapt=glo2deu#nav-specification
@@ -114,6 +116,12 @@ You will need a [28mm Forstner drill bit](https://www.amazon.de/-/en/dp/B01MTADZ
 
 Get the LED pcb here: https://github.com/Syndric/maimai-controller-fullsize/blob/master/production/rabbit_mai_rgb.zip
 
+Note the arrow of the LED faces to the bottom right:
+
+<img src="./Photos/led_pcb.png" width="300">
+
+I ran into issues on my first attempt by ordering the wrong type of LED even though the partnumber "WS2812B" matched. The first ones I got, the pins came out halfway up the side of the LED. Check that the ones you order have the pins on the bottom (surface mount type). These I think are a correct example: https://www.roboter-bausatz.de/p/10-stueck-smd-rgb-led-ws2812b
+
 The LED itself is quite small, and without proper soldering equipment / experience , it will be difficult. Consider ordering 15+ boards in total, in case you ruin a few. 
 
 You can also have jlpcb do the soldering / assembly for you if you supply the part numbers. 
@@ -137,10 +145,32 @@ CPL File details:
 You may have noticed I left off the JST connectors. In my first attempt, the JST connectors I had were too big, and they did not fit inside the button housing. I think syndric also mentions needing to remove some of the button  plastic to make room (although also they used smaller connectors.). Instead I ommitted the JST connector and soldered the wires directly to PCB and created a chain of LED strips with enough length in the wire to reach the next button.
 
 Sorry I didnt get a better picture when I was working on this part, but you can see the LEDs chained together in this picture:
+
 <img src="./Photos/led_chain.png" width="300">
 
+Wiring Diagram:
 
-# Connecting to Gameplay
+<img src="./Photos/led_wiring.png" width="600">
 
-https://github.com/Sucareto/Mai2Touch : 
-- Open the device manager and set the Arduino's COM number, 1P = COM21, 2P = COM23
+#### Configuring Mai Pico LEDS
+
+The LED option in mai pico asks you two things; how many PCB sections you have per button, and how many "Cabinet" leds you have. 
+(Cabinet LEDs would be extra LEDs that would light up the housing of the cabinet for example.)
+In this build I have one LED PCB per button, and no cabinet LEDs. So the config command is:
+
+`rgb 1 0` 
+
+The firmware by default will light up the buttons when the button is pressed, but you can actually connect it to gameplay directly:
+Also check the intructions here: https://github.com/Sucareto/Mai2Touch?tab=readme-ov-file#mai2led-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95
+
+**Make sure the Mai Pico LED Port is set to COM21 in device manager.**
+
+### Card Reader
+
+Wiring for me looked like this:
+
+<img src="./Photos/card_reader_wiring.png" width="300">
+
+If you are using touch, you may need to double solder these wires either here, or directly to your rpi pico pins, whichever you find best. Reference the other guides on this. 
+
+**Make sure Mai Pico AIME Port is set to COM1 in device manager.**
