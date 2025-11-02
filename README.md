@@ -38,6 +38,9 @@ When I first started, I wanted to test one button first, before wiring up all 8.
 
 In the mai_pico command line, you will need to turn on the "tweak" for making the main buttons normally-on inputs if you are using full size Maimai buttons. These buttons send an On signal by default, and an Off signal when pressed, so it needs to be reversed in the mai_pico firmware. 
 
+Command:
+`tweak main_button_active_high on` 
+
 However when you do this when you do NOT have all 8 buttons wired, the firmware will give an error of a "stuck" button. 
 
 To get around this, set all 8 buttons to the button you have wired! For example if your button is connected only on gpio pin 2 , run the command:
@@ -172,5 +175,9 @@ Wiring for me looked like this:
 <img src="./Photos/card_reader_wiring.png" width="300">
 
 If you are using touch, you may need to double solder these wires either here, or directly to your rpi pico pins, whichever you find best. Reference the other guides on this. 
+
+Firmware settings that worked for me:
+
+<img src="./Photos/aime_settings.jpg" width="300">
 
 **Make sure Mai Pico AIME Port is set to COM1 in device manager.**
