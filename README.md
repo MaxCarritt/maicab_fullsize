@@ -10,7 +10,10 @@ Special thanks to these guides and the help they offered:
 - https://github.com/ir0nq/maimai-homemade-controller
 - https://github.com/Syndric/maimai-controller-fullsize
 
-## Finished Project:
+# License
+CC-NC, feel free to modify the project but don't make any money from this guide.
+
+# Finished Project:
 
 Here is a look at the finished project running Majdata Play. (Majdata Play is an open-source software that allows you to play custom charts for maimai.) https://github.com/LingFeng-bbben/MajdataPlay
  
