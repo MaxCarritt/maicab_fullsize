@@ -163,10 +163,11 @@ In this build I have one LED PCB per button, and no cabinet LEDs. So the config 
 
 `rgb 1 0` 
 
-The firmware by default will light up the buttons when the button is pressed, but you can actually connect it to gameplay directly:
+The firmware by default will light up the buttons when the button is pressed, but you can actually connect it to gameplay directly: **Make sure the Mai Pico LED Port is set to COM21 in device manager.**
+
 Also check the intructions here: https://github.com/Sucareto/Mai2Touch?tab=readme-ov-file#mai2led-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95
 
-**Make sure the Mai Pico LED Port is set to COM21 in device manager.**
+
 
 ### Card Reader
 
