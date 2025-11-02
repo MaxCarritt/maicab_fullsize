@@ -21,7 +21,7 @@ Here is a look at the finished project running Majdata Play. (Majdata Play is an
 
 
 # Materials
-<mark>Check the [Materials](Materials.md) page for a BOM and some notes! <\mark>
+<mark>**Check the [Materials](Materials.md) page for a BOM and some notes!**
 
 
 # Lessons Learned
